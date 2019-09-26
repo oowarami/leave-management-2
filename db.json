@@ -1,0 +1,16 @@
+{
+    "Users": [{
+        "id": 1,
+        "name": "warami",
+        "password": "hello",
+        "email": "warami@gmail.com"
+    }],
+    "Requests": [{
+        "id": 1,
+        "userId": 1,
+        "leave-title": "sick-leave",
+        "start-date": "2019/09/26",
+        "end-date": "2019/09/27",
+        "description": "headache"
+    }]
+}
