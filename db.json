@@ -1,10 +1,19 @@
 {
     "Users": [{
-        "id": 1,
-        "name": "warami",
-        "password": "hello",
-        "email": "warami@gmail.com"
-    }],
+            "id": 1,
+            "name": "warami",
+            "password": "hello",
+            "email": "warami@gmail.com",
+            "isAdmin": true
+        },
+        {
+            "id": 2,
+            "name": "laju",
+            "password": "hi",
+            "email": "laju@gmail.com",
+            "isAdmin": false
+        }
+    ],
     "Requests": [{
         "id": 1,
         "userId": 1,
