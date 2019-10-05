@@ -1,0 +1,19 @@
+.container {
+    margin-top: 20px;
+}
+
+textarea {
+    resize: none;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.pagination {
+    float: right;
+}
+
+nav {
+    margin-top: 20px;
+}
