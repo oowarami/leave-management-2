@@ -1,3 +1,13 @@
 #myTab {
     margin-top: 20px;
 }
+
+.btn-light {
+    margin-top: 20px;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    font-size: 14px;
+}
