@@ -11,29 +11,9 @@ let all_requests;
 // Start of logging user out of dashboard
 function logout() {
     localStorage.removeItem("user");
-    window.location.href = "/public/index.html";
+    window.location.href = "../index.html";
 }
 // End of logging user out of dashboard
-
-function process(id, status) {
-    let request_array = all_requests.filter(function(item) {
-        return item.id === id;
-    });
-    let request = request_array[0];
-    request.status = status;
-    $.ajax({
-        method: "PUT",
-        url: "http://localhost:3000/Requests/" + id,
-        data: request,
-        success: function(result) {
-            console.log(result);
-        },
-        error: function(err) {
-            console.log(err);
-            alert("Oops! an error occurred ", err);
-        }
-    });
-}
 
 // this is to display all the user requests for the leave
 function getRequests(status) {
@@ -48,7 +28,7 @@ function getRequests(status) {
             $("#requests").html("");
             all_requests = result;
             result.forEach(function(request) {
-                // start append: this is make sure that when a request is made it automatically appears on the dashboard
+                // start append: this is to make sure that when a request is made it automatically appears on the dashboard
                 let $buttons = "";
                 if (request.status === "pending") {
                     $buttons = `<button class="btn btn-success" onclick="process(
@@ -56,6 +36,7 @@ function getRequests(status) {
                   <button class="btn btn-danger" onclick="process(
                     ${request["id"]},'disapproved')">Disapprove</button>`;
                 }
+
                 $("#requests").append(`
                   <div class="card">
                       <div class="card-body">
@@ -80,3 +61,24 @@ function getRequests(status) {
             // end display all leave requests
     });
 }
+
+// start of the update of the status of the requests
+function process(id, status) {
+    let request = all_requests.find(function(item) {
+        return item.id === id;
+    });
+    data = { status: status };
+    $.ajax({
+        method: "PATCH",
+        url: "http://localhost:3000/Requests/" + id,
+        data: data,
+        success: function(result) {
+            console.log(result);
+        },
+        error: function(err) {
+            console.log(err);
+            alert("Oops! an error occurred ", err);
+        }
+    });
+}
+// end of the update of the status of the requests

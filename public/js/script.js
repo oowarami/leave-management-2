@@ -13,10 +13,10 @@ function toggleForm() {
 // This is for the login button
 $("#login").click(function() {});
 
-src = "../jquery-3.4.1.min.js";
+// src = "../jquery-3.4.1.min.js";
 // start of jquery by;
 $(document).ready(function() {
-    // start of sign up for the user. when a user signs up, this should post info to the server
+    // start of sign up for the user. when a user signs up, this should POST info to the server
     $(".register-form").on("submit", function(e) {
         e.preventDefault();
         let user = {};
@@ -41,9 +41,9 @@ $(document).ready(function() {
             success: function(result) {
                 localStorage.setItem("user", JSON.stringify(result));
                 if (result.isAdmin) {
-                    window.location.href = "/public/html/admin_dashboard.html";
+                    window.location.href = "html/admin_dashboard.html";
                 } else {
-                    window.location.href = "/public/html/user.html";
+                    window.location.href = "html/user.html";
                 }
             },
             error: function(err) {
@@ -54,7 +54,7 @@ $(document).ready(function() {
     });
     // end of signup for the user
 
-    //then when a user logs in, this should get the info from the server, and compare with the sign in info
+    //then when a user logs in, this should GET the info from the server, and compare with the sign in info
     $(".login-form").on("submit", function(e) {
         e.preventDefault();
         let user = {};
@@ -76,9 +76,9 @@ $(document).ready(function() {
                     if (user_obj.password === user.loginPassword) {
                         localStorage.setItem("user", JSON.stringify(user_obj));
                         if (user_obj.isAdmin) {
-                            window.location.href = "/public/html/admin_dashboard.html";
+                            window.location.href = "html/admin_dashboard.html";
                         } else {
-                            window.location.href = "/public/html/user.html";
+                            window.location.href = "html/user.html";
                         }
                     } else {
                         alert("Incorrect Username/Password");
