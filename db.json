@@ -1,43 +1,45 @@
 {
-    "Users": [{
-            "id": 1,
-            "name": "warami",
-            "password": "hello",
-            "email": "warami@gmail.com",
-            "isAdmin": true
-        },
-        {
-            "id": 2,
-            "name": "laju",
-            "password": "hi",
-            "email": "laju@gmail.com",
-            "isAdmin": false
-        },
-        {
-            "name": "Uk",
-            "password": "1234",
-            "email": "uk@gmail.com",
-            "isAdmin": "false",
-            "id": 3
-        }
-    ],
-    "Requests": [{
-            "start_date": "2019-10-15",
-            "end_date": "2019-10-15",
-            "leave_title": "yeah!!!",
-            "description": "ghgs",
-            "status": "pending",
-            "userId": "2",
-            "id": 2
-        },
-        {
-            "start_date": "2019-10-15",
-            "end_date": "2019-10-15",
-            "leave_title": "va",
-            "description": "acxc",
-            "status": "pending",
-            "userId": "2",
-            "id": 3
-        }
-    ]
+  "Users": [
+    {
+      "id": 1,
+      "name": "warami",
+      "password": "hello",
+      "email": "warami@gmail.com",
+      "isAdmin": true
+    },
+    {
+      "id": 2,
+      "name": "laju",
+      "password": "hi",
+      "email": "laju@gmail.com",
+      "isAdmin": false
+    },
+    {
+      "name": "Uk",
+      "password": "1234",
+      "email": "uk@gmail.com",
+      "isAdmin": "false",
+      "id": 3
+    }
+  ],
+  "Requests": [
+    {
+      "start_date": "2019-10-15",
+      "end_date": "2019-10-15",
+      "leave_title": "yeah!!!",
+      "description": "ghgs",
+      "status": "approved",
+      "userId": "2",
+      "id": 2
+    },
+    {
+      "start_date": "2019-10-15",
+      "end_date": "2019-10-15",
+      "leave_title": "va",
+      "description": "acxc",
+      "status": "pending",
+      "userId": "2",
+      "id": 3
+    }
+  ]
 }

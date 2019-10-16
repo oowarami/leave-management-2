@@ -17,14 +17,14 @@
 
         <!-- Nav Start -->
         <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" onclick="getRequests()">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#allLeave" role="tab" aria-controls="home" aria-selected="true">All Requests <span class="badge badge-light">4</span></a>
+            <li class="nav-item" onclick="getRequests('pending')">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#allLeave" role="tab" aria-controls="home" aria-selected="true">Pending Requests <span id="allCount"  class="badge badge-light">0</span></a>
             </li>
             <li class="nav-item" onclick="getRequests('approved')">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#approved" role="tab" aria-controls="profile" aria-selected="false">Approved <span class="badge badge-light">0</span></a>
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#approved" role="tab" aria-controls="profile" aria-selected="false">Approved <span id="allApproved" class="badge badge-light">0</span></a>
             </li>
             <li class="nav-item" onclick="getRequests('disapproved')">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#disapproved" role="tab" aria-controls="contact" aria-selected="false">Disapproved <span class="badge badge-light">8</span></a>
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#disapproved" role="tab" aria-controls="contact" aria-selected="false">Disapproved <span id="allDisapproved" class="badge badge-light">0</span></a>
             </li>
             <!-- welcome banner -->
             <li class="nav-item">
@@ -34,7 +34,7 @@
 
             <!-- logout button -->
             <li>
-                <button class="btn btn-light" onclick="logout()">Logout</button>
+                <button class="btn btn-outline-dark" onclick="logout()">Logout</button>
             </li>
             <!-- logout button -->
         </ul>
@@ -50,6 +50,51 @@
 
         </div>
         <!-- Card End-->
+
+        <!--view leave request Modal Start-->
+        <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="viewModalLabel">View Leave Request</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!--start of  view more table -->
+                    <div class="modal-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Leave Title</td>
+                                <td id="title"></td>
+                            </tr>
+                            <tr>
+                                <td>Start Date</td>
+                                <td id="start"></td>
+                            </tr>
+                            <tr>
+                                <td>End Date</td>
+                                <td id="end"></td>
+                            </tr>
+                            <tr>
+                                <td>Leave Status</td>
+                                <td id="status"></td>
+                            </tr>
+                            <tr>
+                                <td>Leave Description</td>
+                                <td id="description"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- end of view more table -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- view leave request Modal End-->
 
     </div>
 
