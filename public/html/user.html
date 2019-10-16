@@ -17,10 +17,10 @@
 
         <div>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"> Add Leave Request </button>
+            <button id="triggerAddLeave" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"> Add Leave Request </button>
 
             <!-- logout button -->
-            <button class="btn btn-outline-dark" onclick="logout()">Logout</button>
+            <button id="logout" class="btn btn-outline-dark" onclick="logout()">Logout</button>
             <!-- logout button -->
 
             <!-- welcome banner -->
@@ -45,7 +45,7 @@
         </ul>
 
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="allLeave" role="tabpanel" aria-labelledby="home-tab">All Leave</div>
+            <div class="tab-pane fade show active" id="allLeave" role="tabpanel" aria-labelledby="home-tab">Pending</div>
             <div class="tab-pane fade" id="approved" role="tabpanel" aria-labelledby="profile-tab">Approved</div>
             <div class="tab-pane fade" id="disapproved" role="tabpanel" aria-labelledby="contact-tab">Disapproved</div>
         </div>
