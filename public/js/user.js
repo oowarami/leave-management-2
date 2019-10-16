@@ -6,7 +6,7 @@ let userId = user.id;
 
 $(document).ready(function() {
     $("#name").text(user.name);
-    getRequests();
+    getRequests('pending');
 });
 
 // End of Welcoming user to dashboard
@@ -81,18 +81,49 @@ function editRequest(id) {
 // this is to display all the user requests for the leave
 function getRequests(status) {
     let url = "http://localhost:3000/Requests?userId=" + userId;
-
-    if (status) {
-        url = url + "?status=" + status;
-    }
-
     $.ajax({
         method: "GET",
         url: url,
-        success: function(result) {
-            $("#requests").html("");
-            $("#allCount").html(result.length);
+        success: function(results) {
+            // start count for each list
+            let allPending = results.filter(function(item) {
+                return item.status === "pending";
+            });
+            $("#allCount").html(allPending.length);
+            let allApproved = results.filter(function(item) {
+                return item.status === "approved";
+            });
+            $("#allApproved").html(allApproved.length);
+            let allDisapproved = results.filter(function(item) {
+                return item.status === "disapproved";
+            });
+            $("#allDisapproved").html(allDisapproved.length);
+
+            let result;
+            switch (status) {
+                case "pending":
+                    {
+                        result = allPending;
+                        break;
+                    }
+                case "approved":
+                    {
+                        result = allApproved;
+                        break;
+                    }
+                case "disapproved":
+                    {
+                        result = allDisapproved;
+                        break;
+                    }
+                default:
+                    break;
+            }
+            // end count for each list
+
             allRequests = result;
+            // clear the request list before appending
+            $("#requests").html("");
             result.forEach(function(request) {
                 // start append: this is make sure that when a request is made it automatically appears on the dashboard
                 let $buttons = "";
@@ -107,14 +138,11 @@ function getRequests(status) {
                 $("#requests").append(`
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">${request["leave_title"]}</h5>
-                        <p class="card-text">${request["description"]}</p>
-                        <p class="card-text">
-                        ${request["start_date"]} to 
-                        ${request["end_date"]}
-                        </p>
-                        <p class="card-text">${request["status"]}</p>
-                        ${$buttons}
+                    <h5 class="card-title"> ${request["leave_title"]}</h5>
+                    <p class="card-text"> Leave Status: ${request["status"]}</p>
+                    ${$buttons}
+                    <button type="button" class="btn btn-outline-primary" 
+                      data-toggle="modal" data-target="#viewModal" onclick="viewRequest(${request['id']})">View More </button>
                     </div>
                 </div>
               `);
@@ -225,3 +253,16 @@ function updateRequest(id) {
     $("#editModal").modal("toggle");
 }
 // end of the update of the status of the requests
+
+// start of single view request
+function viewRequest(id) {
+    let request = allRequests.find(function(item) {
+        return item.id === id;
+    });
+    $('#title').text(request.leave_title);
+    $('#start').text(request.start_date);
+    $('#end').text(request.end_date);
+    $('#status').text(request.status);
+    $('#description').text(request.description);
+}
+// end of single view request
