@@ -1,5 +1,6 @@
 #myTab {
     margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.40) 0%;
 }
 
 .btn-light {
@@ -13,12 +14,14 @@
 }
 
 body {
-    background: #76b852;
+    /* background: #c2cad0; */
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-    background: -moz-linear-gradient(right, #76b852, #8DC26F);
-    background: -o-linear-gradient(right, #76b852, #8DC26F);
-    background: linear-gradient(to left, #76b852, #8DC26F);
+    /* background: -webkit-linear-gradient(right, #c2cad0, #c2cad0);
+    background-image: linear-gradient(135deg, #c2cad0 0%, #c2cad0 100%);
+    background: -moz-linear-gradient(right, #c2cad0, #c2cad0);
+    background: -o-linear-gradient(right, #c2cad0, #c2cad0);
+    background: linear-gradient(to left, #c2cad0, #c2cad0); */
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -30,4 +33,29 @@ body {
 
 a {
     color: #000000 !important;
+}
+
+.card-body {
+    background-color: rgba(255, 255, 255, 0.40) 0%;
+}
+
+#logout {
+    position: fixed;
+    right: 10px;
+    top: 5px;
+}
+
+.home-title {
+    height: fit-contentpx;
+    width: autopx;
+    display: inherit;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.nav-link {
+    position: relative;
+    top: autopx;
+    margin-top: auto;
 }

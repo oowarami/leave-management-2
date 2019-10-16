@@ -13,7 +13,14 @@
 
 <body>
 
-    <div class="container">
+    <div class="container-fluid">
+
+        <!-- welcome banner -->
+        <h1 class="home-title">
+            Welcome,
+            <span span id="name"> </span>
+        </h1>
+        <!-- welcome banner -->
 
         <!-- Nav Start -->
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -26,21 +33,16 @@
             <li class="nav-item" onclick="getRequests('disapproved')">
                 <a class="nav-link" id="contact-tab" data-toggle="tab" href="#disapproved" role="tab" aria-controls="contact" aria-selected="false">Disapproved <span id="allDisapproved" class="badge badge-light">0</span></a>
             </li>
-            <!-- welcome banner -->
-            <li class="nav-item">
-                Welcome, <span id="name"></span>
-            </li>
-            <!-- welcome banner -->
 
             <!-- logout button -->
             <li>
-                <button class="btn btn-outline-dark" onclick="logout()">Logout</button>
+                <button id="logout" class="btn btn-outline-dark" onclick="logout()">Logout</button>
             </li>
             <!-- logout button -->
         </ul>
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="allLeave" role="tabpanel" aria-labelledby="home-tab">All Leave hdhtdhrd</div>
-            <div class="tab-pane fade" id="approved" role="tabpanel" aria-labelledby="profile-tab">Approved fd</div>
+            <div class="tab-pane fade show active" id="allLeave" role="tabpanel" aria-labelledby="home-tab">Pending </div>
+            <div class="tab-pane fade" id="approved" role="tabpanel" aria-labelledby="profile-tab">Approved</div>
             <div class="tab-pane fade" id="disapproved" role="tabpanel" aria-labelledby="contact-tab">Disapproved</div>
         </div>
         <!-- Nav End -->
