@@ -77,7 +77,7 @@ function getRequests(status) {
                           <h5 class="card-title"> ${request["leave_title"]}</h5>
                           <p class="card-text"> Leave Status: ${request["status"]}</p>
                           ${$buttons}
-                          <button type="button" class="btn btn-outline-primary" 
+                          <button type="button" class="btn btn-outline-info" 
                             data-toggle="modal" data-target="#viewModal" onclick="viewRequest(${request['id']})">View More </button>
                       </div>
                   </div>
