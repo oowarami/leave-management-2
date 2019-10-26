@@ -35,7 +35,7 @@ function deleteRequest(id) {
                 method: "DELETE",
                 url: "http://localhost:3000/Requests/" + id,
                 success: function(result) {
-                    getRequests();
+                    getRequests("pending");
                     notify("success", "successfully deleted");
                 },
                 error: function(err) {
