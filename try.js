@@ -1,9 +1,9 @@
-let x = 10;
-let y = 1 + x;
+const user = { isAdmin: "false" };
 
-let obj = { x: 11 };
-
-console.log(obj.x + 1);
-
-console.log(x);
-console.log(y);
+if (user.isAdmin) {
+    console.log(true);
+    console.log("takes you admin page");
+} else {
+    console.log(false);
+    console.log("user page");
+}

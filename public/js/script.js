@@ -23,7 +23,7 @@ $(document).ready(function() {
         let name = $("#name").val();
         let password = $("#password").val();
         let email = $("#email").val();
-        let isAdmin = $("#admin").is(":checked");
+        // let isAdmin = $("#admin").is(":checked");
 
         if (!name) return alert("Kindly input name");
         if (!password) return alert("Kindly input password");
@@ -32,23 +32,34 @@ $(document).ready(function() {
         user.name = name;
         user.password = password;
         user.email = email;
-        user.isAdmin = isAdmin;
+        user.isAdmin = false;
 
         $.ajax({
-            method: "POST",
-            url: "http://localhost:3000/Users",
-            data: user,
+            method: "GET",
+            url: "http://localhost:3000/Users?email=" + user.email,
             success: function(result) {
-                localStorage.setItem("user", JSON.stringify(result));
-                if (result.isAdmin) {
-                    window.location.href = "html/admin_dashboard.html";
+                console.log(result);
+                if (result.length) {
+                    alert("This email already exists!");
                 } else {
-                    window.location.href = "html/user.html";
+                    $.ajax({
+                        method: "POST",
+                        url: "http://localhost:3000/Users",
+                        data: user,
+                        success: function(result) {
+                            localStorage.setItem("user", JSON.stringify(result));
+                            if (eval(result.isAdmin)) {
+                                window.location.href = "html/admin_dashboard.html";
+                            } else {
+                                window.location.href = "html/user.html";
+                            }
+                        },
+                        error: function(err) {
+                            console.log(err);
+                            alert("Oops! an error occurred ", err);
+                        }
+                    });
                 }
-            },
-            error: function(err) {
-                console.log(err);
-                alert("Oops! an error occurred ", err);
             }
         });
     });
