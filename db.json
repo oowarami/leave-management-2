@@ -12,14 +12,32 @@
             "password": "hi",
             "email": "laju@gmail.com",
             "isAdmin": false
+        },
+        {
+            "name": "Uk",
+            "password": "1234",
+            "email": "uk@gmail.com",
+            "isAdmin": "false",
+            "id": 3
         }
     ],
     "Requests": [{
-        "id": 1,
-        "userId": 1,
-        "leave-title": "sick-leave",
-        "start-date": "2019/09/26",
-        "end-date": "2019/09/27",
-        "description": "headache"
-    }]
+            "start_date": "2019-10-15",
+            "end_date": "2019-10-15",
+            "leave_title": "yeah!!!",
+            "description": "ghgs",
+            "status": "pending",
+            "userId": "2",
+            "id": 1
+        },
+        {
+            "start_date": "2019-10-15",
+            "end_date": "2019-10-15",
+            "leave_title": "yeah!!!",
+            "description": "ghgs",
+            "status": "pending",
+            "userId": "2",
+            "id": 2
+        }
+    ]
 }

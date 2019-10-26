@@ -9,5 +9,8 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "sweetalert2": "^8.18.3"
+    }
 }

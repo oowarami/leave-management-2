@@ -36,11 +36,12 @@ body {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: #4CAF50;
+    /* background: #4CAF50; */
+    background: #cfd9df;
     width: 100%;
     border: 0;
     padding: 15px;
-    color: #FFFFFF;
+    color: #000000;
     font-size: 14px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
@@ -50,7 +51,8 @@ body {
 .form button:hover,
 .form button:active,
 .form button:focus {
-    background: #43A047;
+    /* background: #43A047; */
+    background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
 
 .form .message {
@@ -60,7 +62,8 @@ body {
 }
 
 .form .message a {
-    color: #4CAF50;
+    /* color: #4CAF50; */
+    color: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
     text-decoration: none;
 }
 
@@ -110,13 +113,22 @@ body {
 }
 
 body {
-    background: #76b852;
+    /* background: #76b852;*/
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+    /* background: -webkit-linear-gradient(right, #76b852, #8DC26F);
     background: -moz-linear-gradient(right, #76b852, #8DC26F);
     background: -o-linear-gradient(right, #76b852, #8DC26F);
-    background: linear-gradient(to left, #76b852, #8DC26F);
+    background: linear-gradient(to left, #76b852, #8DC26F);  */
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+input[type="checkbox"] {
+    width: 30px;
+}
+
+#isadmin-checkbox {
+    font-size: 13px;
 }
