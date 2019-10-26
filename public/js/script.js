@@ -86,7 +86,7 @@ $(document).ready(function() {
                 if (user_obj) {
                     if (user_obj.password === user.loginPassword) {
                         localStorage.setItem("user", JSON.stringify(user_obj));
-                        if (user_obj.isAdmin) {
+                        if (eval(user_obj.isAdmin)) {
                             window.location.href = "html/admin_dashboard.html";
                         } else {
                             window.location.href = "html/user.html";
