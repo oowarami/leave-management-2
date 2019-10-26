@@ -3,7 +3,7 @@ $(document).ready(function() {
     let user_string = localStorage.getItem("user");
     let user = JSON.parse(user_string);
     $("#name").text(user.name);
-    getRequests('pending');
+    getRequests("pending");
 });
 // End of Welcome user to dashboard
 
@@ -59,7 +59,7 @@ function getRequests(status) {
             // end count for each list
 
             all_requests = result;
-            // clear the request list before appending 
+            // clear the request list before appending
             $("#requests").html("");
             result.forEach(function(request) {
                 // start append: this is to make sure that when a request is made it automatically appears on the dashboard
@@ -75,10 +75,14 @@ function getRequests(status) {
                   <div class="card">
                       <div class="card-body">
                           <h5 class="card-title"> ${request["leave_title"]}</h5>
-                          <p class="card-text"> Leave Status: ${request["status"]}</p>
+                          <p class="card-text"> Leave Status: ${
+														request["status"]
+													}</p>
                           ${$buttons}
                           <button type="button" class="btn btn-outline-info" 
-                            data-toggle="modal" data-target="#viewModal" onclick="viewRequest(${request['id']})">View More </button>
+                            data-toggle="modal" data-target="#viewModal" onclick="viewRequest(${
+															request["id"]
+														})">View More </button>
                       </div>
                   </div>
                 `);
@@ -105,6 +109,8 @@ function process(id, status) {
         data: data,
         success: function(result) {
             console.log(result);
+            getRequests("pending");
+            notify("success", "leave request " + status);
         },
         error: function(err) {
             console.log(err);
@@ -119,10 +125,10 @@ function viewRequest(id) {
     let request = all_requests.find(function(item) {
         return item.id === id;
     });
-    $('#title').text(request.leave_title);
-    $('#start').text(request.start_date);
-    $('#end').text(request.end_date);
-    $('#status').text(request.status);
-    $('#description').text(request.description);
+    $("#title").text(request.leave_title);
+    $("#start").text(request.start_date);
+    $("#end").text(request.end_date);
+    $("#status").text(request.status);
+    $("#description").text(request.description);
 }
 // end of single view request

@@ -6,7 +6,7 @@ let userId = user.id;
 
 $(document).ready(function() {
     $("#name").text(user.name);
-    getRequests('pending');
+    getRequests("pending");
 });
 
 // End of Welcoming user to dashboard
@@ -48,7 +48,9 @@ function deleteRequest(id) {
 }
 
 function editRequest(id) {
-    let request = allRequests.find(req => req.id == id);
+    let request = allRequests.find(function(req) {
+        return req.id == id;
+    });
     // appended the body to the onclick of the edit button (which is the modal body)
 
     $("#updateRequestBody").html(`
@@ -142,7 +144,9 @@ function getRequests(status) {
                     <p class="card-text"> Leave Status: ${request["status"]}</p>
                     ${$buttons}
                     <button type="button" class="btn btn-outline-info" 
-                      data-toggle="modal" data-target="#viewModal" onclick="viewRequest(${request['id']})">View More </button>
+                      data-toggle="modal" data-target="#viewModal" onclick="viewRequest(${
+												request["id"]
+											})">View More </button>
                     </div>
                 </div>
               `);
@@ -157,9 +161,6 @@ function getRequests(status) {
 }
 // end display all leave requests
 $("#addLeave").on("click", addRequests);
-// $("#updateButton").on("click", function() {
-//     alert("hdhdh");
-// });
 
 // add leave requests
 function addRequests() {
@@ -196,7 +197,7 @@ function addRequests() {
         url: "http://localhost:3000/Requests",
         data: payload,
         success: function(result) {
-            getRequests();
+            getRequests("pending");
             notify("success", "leave request successful");
         }
     });
@@ -243,7 +244,7 @@ function updateRequest(id) {
         data: payload,
         dataType: "JSON",
         success: function(result) {
-            getRequests();
+            getRequests("pending");
             notify("success", "successfully updated");
         }
     });
@@ -259,10 +260,10 @@ function viewRequest(id) {
     let request = allRequests.find(function(item) {
         return item.id === id;
     });
-    $('#title').text(request.leave_title);
-    $('#start').text(request.start_date);
-    $('#end').text(request.end_date);
-    $('#status').text(request.status);
-    $('#description').text(request.description);
+    $("#title").text(request.leave_title);
+    $("#start").text(request.start_date);
+    $("#end").text(request.end_date);
+    $("#status").text(request.status);
+    $("#description").text(request.description);
 }
 // end of single view request
